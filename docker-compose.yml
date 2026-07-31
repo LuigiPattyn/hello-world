@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    image: fancy-hello-world
+    container_name: fancy-hello-world
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    restart: unless-stopped
