@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Luce</title>
+  <meta name="description" content="The Luce story, brand values, and the design system behind our warm, Mediterranean-inspired candle storefront.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="sunset-overlay" class="sunset-overlay"></div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Luce<span>.</span></a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="candles.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-link" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12z"></path>
+            <circle cx="9" cy="20" r="1.5"></circle>
+            <circle cx="18" cy="20" r="1.5"></circle>
+            <path d="M6 6L5 3H2"></path>
+          </svg>
+          <span class="cart-count" data-count="0"></span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="candles.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="cart.html" class="nav-link">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: var(--space-16);">
+      <div class="container">
+        <div class="about-intro">
+          <h1 class="section-title">About Luce</h1>
+          <p>Luce is a small candle studio inspired by the long, light-drenched evenings of Ibiza. We blend natural soy wax with essential-oil-forward scents, poured in small batches and designed to make any room feel like golden hour.</p>
+        </div>
+
+        <h2 class="section-title" style="margin-bottom: var(--space-8);">Design system</h2>
+        <div class="design-system-grid">
+          <div class="design-system-card">
+            <h3>Color tokens</h3>
+            <div class="color-grid" id="color-swatches"></div>
+          </div>
+
+          <div class="design-system-card">
+            <h3>Typography scale</h3>
+            <div class="type-scale">
+              <div>
+                <span class="label">3xl</span>
+                <p style="font-size: var(--font-size-3xl); font-family: var(--font-heading);">Golden hour light</p>
+              </div>
+              <div>
+                <span class="label">2xl</span>
+                <p style="font-size: var(--font-size-2xl); font-family: var(--font-heading);">Hand-poured candles</p>
+              </div>
+              <div>
+                <span class="label">xl</span>
+                <p style="font-size: var(--font-size-xl); font-family: var(--font-heading);">Shop the collection</p>
+              </div>
+              <div>
+                <span class="label">body</span>
+                <p style="font-size: var(--font-size-base); color: var(--color-text-muted);">Warm amber, sun-baked terracotta, and Mediterranean herbs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="design-system-card">
+            <h3>Buttons</h3>
+            <div class="button-row">
+              <button class="btn btn-primary">Primary</button>
+              <button class="btn btn-secondary">Secondary</button>
+              <button class="btn btn-ghost">Ghost</button>
+            </div>
+          </div>
+
+          <div class="design-system-card">
+            <h3>Spacing tokens</h3>
+            <div class="spacing-stack">
+              <div><div class="bar" style="width: var(--space-2);"></div><span class="label">space-2</span></div>
+              <div><div class="bar" style="width: var(--space-4);"></div><span class="label">space-4</span></div>
+              <div><div class="bar" style="width: var(--space-6);"></div><span class="label">space-6</span></div>
+              <div><div class="bar" style="width: var(--space-8);"></div><span class="label">space-8</span></div>
+              <div><div class="bar" style="width: var(--space-12);"></div><span class="label">space-12</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="footer-logo" aria-label="Toggle Ibiza sunset mode">Luce.</a>
+      <p class="footer-tagline">Hand-poured candles, made for golden hour.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="candles.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <p class="footer-credit">© 2025 Luce. Demo storefront.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const swatches = [
+        { name: '--color-ivory', hex: '#F9F6F0', usage: 'page background' },
+        { name: '--color-sand', hex: '#EDE6D8', usage: 'cards, sections' },
+        { name: '--color-warm', hex: '#D4A574', usage: 'borders, accents' },
+        { name: '--color-terracotta', hex: '#C67B5C', usage: 'primary buttons' },
+        { name: '--color-amber', hex: '#E8A87C', usage: 'hover, highlights' },
+        { name: '--color-olive', hex: '#7D836E', usage: 'secondary text, tags' },
+        { name: '--color-espresso', hex: '#3C2F2F', usage: 'body text, headings' },
+      ];
+      const container = document.getElementById('color-swatches');
+      container.innerHTML = swatches.map((s) => `
+        <div class="color-swatch">
+          <div class="color-swatch-patch" style="background-color: ${s.hex};" title="${s.usage}"></div>
+          <div class="color-swatch-info">
+            <span class="color-swatch-name">${s.name}</span>
+            <span class="color-swatch-hex">${s.hex}</span>
+          </div>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
