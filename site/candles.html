@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Candles — Luce</title>
+  <meta name="description" content="Browse the full Luce candle collection. Filter by scent, sort by price, and build your perfect golden-hour ritual.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="sunset-overlay" class="sunset-overlay"></div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Luce<span>.</span></a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="candles.html" class="nav-link active">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-link" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12z"></path>
+            <circle cx="9" cy="20" r="1.5"></circle>
+            <circle cx="18" cy="20" r="1.5"></circle>
+            <path d="M6 6L5 3H2"></path>
+          </svg>
+          <span class="cart-count" data-count="0"></span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="candles.html" class="nav-link active">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="cart.html" class="nav-link">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: var(--space-16);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">Shop candles</h1>
+            <p class="section-subtitle">Find your signature scent. Filter by fragrance family or sort by price.</p>
+          </div>
+        </div>
+
+        <div class="catalog-controls">
+          <div class="control-group">
+            <label for="scent-filter">Scent family</label>
+            <select id="scent-filter" class="select">
+              <option value="all">All scents</option>
+              <option value="amber">Amber</option>
+              <option value="sandalwood">Sandalwood</option>
+              <option value="salt">Sea salt</option>
+              <option value="olive">Olive / herbal</option>
+              <option value="fig">Fig / fruity</option>
+              <option value="linen">Linen / clean</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="sort-filter">Sort by</label>
+            <select id="sort-filter" class="select">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="name">Name</option>
+            </select>
+          </div>
+          <div class="control-group" style="justify-content: flex-end; flex: 0 0 auto;">
+            <span class="label" style="margin-bottom:0">Results</span>
+            <p id="result-count" style="font-weight: 500; margin: 0;">0 candles</p>
+          </div>
+        </div>
+
+        <div id="product-grid" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="footer-logo" aria-label="Toggle Ibiza sunset mode">Luce.</a>
+      <p class="footer-tagline">Hand-poured candles, made for golden hour.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="candles.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <p class="footer-credit">© 2025 Luce. Demo storefront.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/products.js" defer></script>
+</body>
+</html>

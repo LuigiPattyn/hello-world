@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ibiza-sunset",
+    "name": "Ibiza Sunset",
+    "scent": "Amber, sandalwood & sea salt",
+    "price": 42.00,
+    "size": "400g / 60h burn",
+    "description": "A warm, salt-kissed amber that mirrors the last hour of light on the Balearic coast. Hand-poured for slow evenings.",
+    "image": "assets/images/ibiza-sunset.jpg",
+    "stock": 12,
+    "featured": true,
+    "category": "lounge"
+  },
+  {
+    "id": "terracotta-dusk",
+    "name": "Terracotta Dusk",
+    "scent": "Red clay, neroli & warm spice",
+    "price": 38.00,
+    "size": "300g / 45h burn",
+    "description": "Sun-baked terracotta, citrus groves, and a whisper of cardamom. Made for golden-hour dinners.",
+    "image": "assets/images/terracotta-dusk.jpg",
+    "stock": 8,
+    "featured": true,
+    "category": "lounge"
+  },
+  {
+    "id": "golden-amber",
+    "name": "Golden Amber",
+    "scent": "Baltic amber, vanilla & honeyed musk",
+    "price": 46.00,
+    "size": "400g / 60h burn",
+    "description": "Liquid gold for the senses. A plush amber glow that lingers like late summer light.",
+    "image": "assets/images/golden-amber.jpg",
+    "stock": 15,
+    "featured": true,
+    "category": "ritual"
+  },
+  {
+    "id": "olive-grove",
+    "name": "Olive Grove",
+    "scent": "Olive leaf, thyme & sun-warmed stone",
+    "price": 36.00,
+    "size": "300g / 45h burn",
+    "description": "Walking through ancient groves at noon. Herbal, green, and effortlessly Mediterranean.",
+    "image": "assets/images/olive-grove.jpg",
+    "stock": 20,
+    "featured": false,
+    "category": "travel"
+  },
+  {
+    "id": "sandalwood-ritual",
+    "name": "Sandalwood Ritual",
+    "scent": "Sandalwood, cedar & smoked incense",
+    "price": 44.00,
+    "size": "400g / 60h burn",
+    "description": "A grounding ritual in a jar. Creamy sandalwood layered with cedar embers and quiet smoke.",
+    "image": "assets/images/sandalwood-ritual.jpg",
+    "stock": 6,
+    "featured": false,
+    "category": "ritual"
+  },
+  {
+    "id": "sea-salt-drift",
+    "name": "Sea Salt Drift",
+    "scent": "Sea salt, driftwood & white linen",
+    "price": 34.00,
+    "size": "300g / 45h burn",
+    "description": "Open windows, linen drying in the breeze, and the clean edge of the sea.",
+    "image": "assets/images/sea-salt-drift.jpg",
+    "stock": 18,
+    "featured": false,
+    "category": "travel"
+  },
+  {
+    "id": "wild-fig",
+    "name": "Wild Fig",
+    "scent": "Fig leaf, blackcurrant & milky sap",
+    "price": 40.00,
+    "size": "300g / 45h burn",
+    "description": "Ripe fig trees in a walled garden. Green, jammy, and a little bit wild.",
+    "image": "assets/images/wild-fig.jpg",
+    "stock": 10,
+    "featured": false,
+    "category": "lounge"
+  },
+  {
+    "id": "white-linen",
+    "name": "White Linen",
+    "scent": "Cotton bloom, bergamot & soft woods",
+    "price": 32.00,
+    "size": "300g / 45h burn",
+    "description": "The calm of freshly pressed sheets and morning light. Soft, clean, and quietly luxurious.",
+    "image": "assets/images/white-linen.jpg",
+    "stock": 24,
+    "featured": false,
+    "category": "travel"
+  }
+]

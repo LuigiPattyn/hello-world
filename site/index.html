@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luce — Hand-poured candles, made for golden hour.</title>
+  <meta name="description" content="Luce makes warm, hand-poured candles inspired by Ibiza sunsets, Mediterranean herbs, and golden hour light.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="sunset-overlay" class="sunset-overlay"></div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Luce<span>.</span></a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="candles.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="cart-link" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 6h15l-1.5 9h-12z"></path>
+            <circle cx="9" cy="20" r="1.5"></circle>
+            <circle cx="18" cy="20" r="1.5"></circle>
+            <path d="M6 6L5 3H2"></path>
+          </svg>
+          <span class="cart-count" data-count="0"></span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="candles.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="cart.html" class="nav-link">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-image" src="assets/images/hero-candle.jpg" alt="A glowing Luce candle against a warm sunset backdrop" loading="eager">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Ibiza-inspired</span>
+        <h1 class="hero-title">Hand-poured candles, made for golden hour.</h1>
+        <p class="hero-body">Warm amber, sun-baked terracotta, and Mediterranean herbs. Every Luce candle is blended to slow the evening down.</p>
+        <div class="hero-actions">
+          <a href="candles.html" class="btn btn-primary">Shop candles</a>
+          <a href="about.html" class="btn btn-secondary">Our story</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Featured candles</h2>
+            <p class="section-subtitle">Best-sellers chosen for long, slow evenings.</p>
+          </div>
+          <a href="candles.html" class="btn btn-secondary">View all</a>
+        </div>
+        <div id="featured-grid" class="product-grid featured-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-sand">
+      <div class="container text-center">
+        <h2 class="section-title">Made for the moments after the sun sets.</h2>
+        <p class="section-subtitle" style="margin-inline:auto">Natural soy wax, cotton wicks, and essential-oil-forward scents. No paraffin, no synthetic dyes, no rush.</p>
+        <a href="about.html" class="btn btn-primary">Read the Luce story</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="footer-logo" aria-label="Toggle Ibiza sunset mode">Luce.</a>
+      <p class="footer-tagline">Hand-poured candles, made for golden hour.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="candles.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <p class="footer-credit">© 2025 Luce. Demo storefront.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/products.js" defer></script>
+</body>
+</html>
