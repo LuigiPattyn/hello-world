@@ -1,0 +1,5 @@
+{
+  "command": "cargo run --release",
+  "cwd": ".",
+  "port": 8000
+}

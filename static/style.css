@@ -1,0 +1,407 @@
+/* hello-world — "First Light"
+   A twilight sky over a terminal floor: the greeting rises out of the dark,
+   and the comma — the pause before the world — beats like a spark.
+
+   Palette   deep #0B0718 · dusk #1B1240 · abyss #05030D
+             ink #EFEAFF · dim #A79FC9 · faint #6F6795
+             aurora teal #5EEAD4 · aurora rose #FF7AA2 · warm light #FFE9B0
+   Type      monospace carries the display (this is a program's first output);
+             the system sans carries the prose. No web fonts, no network.        */
+
+:root {
+  --bg-deep: #0b0718;
+  --bg-dusk: #1b1240;
+  --abyss: #05030d;
+
+  --ink: #efeaff;
+  --ink-dim: #a79fc9;
+  --ink-faint: #6f6795;
+
+  --teal: #5eead4;
+  --rose: #ff7aa2;
+  --warm: #ffe9b0;
+
+  --rule: rgba(167, 159, 201, 0.2);
+  --glass: rgba(20, 14, 45, 0.55);
+
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --hero: clamp(2.5rem, 10.5vw, 7.5rem);
+  --step: 70ms;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(125% 95% at 50% -10%, var(--bg-dusk) 0%, var(--bg-deep) 52%, var(--abyss) 100%);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── the sky ───────────────────────────────────────────────────────────── */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora {
+  position: absolute;
+  width: 78vmax;
+  height: 78vmax;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.42;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.aurora--teal {
+  top: -34vmax;
+  left: -22vmax;
+  background: radial-gradient(circle at 50% 50%, rgba(94, 234, 212, 0.55), transparent 62%);
+  animation: drift-teal 28s ease-in-out infinite alternate;
+}
+
+.aurora--rose {
+  right: -26vmax;
+  bottom: -38vmax;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 122, 162, 0.5), transparent 62%);
+  animation: drift-rose 34s ease-in-out infinite alternate;
+}
+
+@keyframes drift-teal {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(9vmax, 6vmax, 0) scale(1.15); }
+}
+
+@keyframes drift-rose {
+  from { transform: translate3d(0, 0, 0) scale(1.1); }
+  to   { transform: translate3d(-8vmax, -7vmax, 0) scale(0.95); }
+}
+
+/* The floor: a perspective grid, scrolling away from the reader — the one
+   piece of terminal hardware that survives into the sky. */
+.grid {
+  position: absolute;
+  right: -20%;
+  bottom: 0;
+  left: -20%;
+  height: 46vh;
+  background-image:
+    linear-gradient(to right, rgba(94, 234, 212, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(94, 234, 212, 0.4) 1px, transparent 1px);
+  background-size: 72px 72px;
+  transform: perspective(420px) rotateX(64deg);
+  transform-origin: bottom center;
+  opacity: 0.45;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 88%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 88%);
+  animation: glide 6s linear infinite;
+}
+
+@keyframes glide {
+  from { background-position: 0 0; }
+  to   { background-position: 0 72px; }
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.028) 0 1px,
+    transparent 1px 3px
+  );
+  opacity: 0.7;
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 34vh;
+  background: linear-gradient(to bottom, transparent, rgba(94, 234, 212, 0.05), transparent);
+  animation: sweep 9s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0%   { top: -34vh; }
+  100% { top: 100vh; }
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 45%, transparent 42%, rgba(5, 3, 13, 0.85) 100%);
+}
+
+/* ── the stage ─────────────────────────────────────────────────────────── */
+
+.stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  min-height: 100svh;
+  padding: clamp(1.5rem, 5vw, 4rem) 1.25rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+.dots { display: inline-flex; gap: 0.32rem; }
+
+.dots i {
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  opacity: 0.6;
+}
+
+.dots i:nth-child(1) { background: var(--rose); opacity: 0.85; }
+.dots i:nth-child(2) { background: var(--warm); opacity: 0.85; }
+.dots i:nth-child(3) { background: var(--teal); opacity: 0.85; }
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.9em;
+  margin-right: 0.35em;
+  vertical-align: -0.1em;
+  background: var(--teal);
+  animation: blink 1.4s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%, 49%  { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+
+/* ── the hero ──────────────────────────────────────────────────────────── */
+
+.hero {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: var(--hero);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  filter: drop-shadow(0 0 34px rgba(94, 234, 212, 0.22));
+}
+
+.hero__letters { display: inline-block; white-space: nowrap; }
+
+.l {
+  display: inline-block;
+  background-image: linear-gradient(
+    180deg,
+    var(--warm) 0%,
+    var(--ink) 34%,
+    var(--teal) 66%,
+    var(--rose) 100%
+  );
+  background-size: 100% 240%;
+  background-position: 0 12%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  will-change: transform, background-position;
+  animation:
+    rise 0.95s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    tide 6s ease-in-out infinite alternate;
+  animation-delay:
+    calc(var(--i) * var(--step)),
+    calc(1.5s + var(--i) * 110ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em) scale(0.94);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* The colour tide rolls through the word letter by letter. */
+@keyframes tide {
+  from { background-position: 0 0%; }
+  to   { background-position: 0 100%; }
+}
+
+.gap { display: inline-block; width: 0.28em; }
+
+/* The comma is the pause before the world — and it has a pulse. */
+.spark { position: relative; }
+
+.spark::after {
+  content: "";
+  position: absolute;
+  left: 46%;
+  top: 74%;
+  width: 0.42em;
+  height: 0.42em;
+  margin: -0.21em 0 0 -0.21em;
+  border: 1.5px solid var(--rose);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ring 2.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+@keyframes ring {
+  0%   { transform: scale(0.5); opacity: 0.85; }
+  70%  { opacity: 0; }
+  100% { transform: scale(3.4); opacity: 0; }
+}
+
+/* ── prose, link, status ───────────────────────────────────────────────── */
+
+.sub {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: clamp(0.94rem, 1.6vw, 1.06rem);
+  text-wrap: balance;
+}
+
+.sub code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  padding: 0.15em 0.42em;
+  border: 1px solid var(--rule);
+  border-radius: 0.4rem;
+  background: rgba(94, 234, 212, 0.07);
+  color: var(--teal);
+}
+
+.links { margin: 0.4rem 0 0; }
+
+.link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.06);
+  color: var(--teal);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  background: rgba(94, 234, 212, 0.13);
+  box-shadow: 0 0 26px rgba(94, 234, 212, 0.28);
+}
+
+.link__hint {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 0.4rem;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem 1.5rem;
+  margin: 0.6rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.status b { color: var(--teal); font-weight: 600; }
+
+/* ── the 404 page ──────────────────────────────────────────────────────── */
+
+.stage--404 .hero { --hero: clamp(4rem, 18vw, 11rem); }
+
+/* ── narrow screens ────────────────────────────────────────────────────── */
+
+@media (max-width: 560px) {
+  .sky .grid { opacity: 0.3; }
+  .stage { gap: 1.25rem; }
+  .status { gap: 0.4rem 0.9rem; letter-spacing: 0.12em; }
+}
+
+/* ── quiet mode ────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .l {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    background-position: 0 40%;
+  }
+
+  .spark::after { opacity: 0.35; }
+}
+
+@media (prefers-contrast: more) {
+  :root { --ink-dim: #cdc7e8; --ink-faint: #a79fc9; }
+  .hero { filter: none; }
+}
