@@ -1,0 +1,11 @@
+[package]
+name = "hello-world"
+version = "0.1.0"
+edition = "2021"
+description = "A lightweight hello-world web server using only the standard library."
+license = "Apache-2.0"
+
+[dependencies]
+
+[profile.release]
+strip = true
